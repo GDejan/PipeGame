@@ -39,5 +39,23 @@ namespace PipeGame
                 }
             }
         }
+
+        private void MouseLeftDownEvent(object sender, MouseButtonEventArgs e)
+        {
+            Rectangle activeRec = (Rectangle)e.OriginalSource;
+            Grid activeGrid = activeRec.Parent as Grid;
+            RotateTransform activGridAngel = activeGrid.RenderTransform as RotateTransform;
+
+            Tile.Rotate(activeGrid, (int)activGridAngel.Angle + 90);
+        }
+
+        private void MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Rectangle activeRec = (Rectangle)e.OriginalSource;
+            Grid activeGrid = activeRec.Parent as Grid;
+            RotateTransform activGridAngel = activeGrid.RenderTransform as RotateTransform;
+
+            Tile.Rotate(activeGrid, (int)activGridAngel.Angle - 90);
+        }
     }
 }
