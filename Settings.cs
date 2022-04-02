@@ -9,7 +9,10 @@ using System.Windows.Media;
 
 namespace PipeGame
 {
-    internal class Settings //helpers 
+    /// <summary>
+    /// helper class with game settings
+    /// </summary>
+    internal class Settings 
     {
         public static SolidColorBrush blockColor 
         {
@@ -36,27 +39,39 @@ namespace PipeGame
         {
             get
             {
-                return new SolidColorBrush(Color.FromRgb(255, 0, 255));
+                return new SolidColorBrush(Color.FromRgb(0, 255, 0));
             }
         }
         public static SolidColorBrush looseColor
         {
             get
             {
-                return new SolidColorBrush(Color.FromRgb( 0, 255, 255));
+                return new SolidColorBrush(Color.FromRgb( 255, 0, 0));
             }
         }
 
-        public static int BoxHeight { get { return 50; } private set { } }
-        public static int BoxWidth { get { return 50; } private set { } }
+        public static int BoxHeight { get; private set; }
+        public static int BoxWidth { get; private set; }
 
-        public static int LineHeight { get { return 25; } private set { } }
-        public static int LineWidth { get { return 10; } private set { } }
-        public static int Marg { get { return -25; } private set { } }
-        public static int CenterOfRotation { get { return 25; } private set { } }
-        public static int NoOfClicks=-1;
-        public static int MaxNoOfClicks = 30;
-        public static bool GameOwer=false;
+        public static int LineHeight { get; private set; }
+        public static int LineWidth { get; private set; }
+        public static int Marg { get;  private set; }
+        public static int CenterOfRotation { get; private set; }
+        public static int NoOfClicks { get; set; }
+        public static int MaxNoOfClicks { get; private set; }
+        public static bool GameOwer { get;  set; }
 
+        public Settings()
+        {
+            BoxHeight = 50;
+            BoxWidth = 50; 
+            LineHeight = 25;
+            LineWidth = 10;
+            Marg = -25; 
+            CenterOfRotation = 25; 
+            NoOfClicks = -1;
+            MaxNoOfClicks = 30;
+            GameOwer = false;
+        }
     }
 }

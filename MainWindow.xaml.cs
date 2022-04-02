@@ -37,6 +37,7 @@ namespace PipeGame
         public MainWindow()
         {
             InitializeComponent();
+            new Settings();
             NewGame();
             clickCount();
         }
