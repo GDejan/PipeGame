@@ -16,6 +16,12 @@ namespace PipeGame
         {
 
         }
+        /// <summary>
+        /// draw items in a box
+        /// </summary>
+        /// <param name="GameGrid">grid</param>
+        /// <param name="row">row</param>
+        /// <param name="column">column</param>
         public  DrawBox(Grid GameGrid, int row, int column)
             : base(GameGrid, row, column)
         {
@@ -25,7 +31,6 @@ namespace PipeGame
             BoxGrid.Children.Add(Block); //add Background box to Boxgrid
 
             int shape = Random(0, 6); //random choose of shape
-            
             if (shape == 5)
             {
                 Rectangle Line = DrawLine(1);
@@ -45,7 +50,7 @@ namespace PipeGame
             
             int angel = 0;
             string didLR = "";
-            switch (Random(1, 4))
+            switch (Random(1, 4))          
             {
                 case 1: //no rotation
                     angel = 0;
@@ -66,11 +71,16 @@ namespace PipeGame
                     break;
             }
 
-            Rotate(BoxGrid, angel, didLR); //rotate Box grid to specific angel with dir L or R
-            GameGrid.Children.Add(BoxGrid); //add BoxGrid to Main grid
+            Grid BoxGridRotated = Rotate( BoxGrid, angel, didLR); //rotate Box grid to specific angel with dir L or R
+            GameGrid.Children.Add(BoxGridRotated); //add BoxGrid to Main grid
 
         }
 
+        /// <summary>
+        /// drav line in a box, shape 0-5
+        /// </summary>
+        /// <param name="shape">shape</param>
+        /// <returns></returns>
         private Rectangle DrawLine(int shape)
         {
             int Height = 0;
@@ -124,6 +134,12 @@ namespace PipeGame
             return Line;
         }
 
+        /// <summary>
+        /// drw grid in a box
+        /// </summary>
+        /// <param name="row">row</param>
+        /// <param name="column">column</param>
+        /// <returns></returns>
         private Grid DrawGrid(int row, int column)
         {
             Grid TileGrid = new Grid();
@@ -133,6 +149,11 @@ namespace PipeGame
             TileGrid.SetValue(Grid.ColumnSpanProperty, 1);
             return TileGrid;
         }
+
+        /// <summary>
+        /// draw background box
+        /// </summary>
+        /// <returns></returns>
         private Rectangle DrawBlock()
         {
             Rectangle Block = new Rectangle();
@@ -140,5 +161,7 @@ namespace PipeGame
             Block.Stroke = Settings.strokeColor;
             return Block;
         }
+
+       
     }
 }

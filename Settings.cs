@@ -32,6 +32,21 @@ namespace PipeGame
                 return new SolidColorBrush(Color.FromArgb(100, 0, 0, 0));
             }
         }
+        public static SolidColorBrush wincolor
+        {
+            get
+            {
+                return new SolidColorBrush(Color.FromRgb(255, 0, 255));
+            }
+        }
+        public static SolidColorBrush looseColor
+        {
+            get
+            {
+                return new SolidColorBrush(Color.FromRgb( 0, 255, 255));
+            }
+        }
+
         public static int BoxHeight { get { return 50; } private set { } }
         public static int BoxWidth { get { return 50; } private set { } }
 
@@ -40,10 +55,8 @@ namespace PipeGame
         public static int Marg { get { return -25; } private set { } }
         public static int CenterOfRotation { get { return 25; } private set { } }
         public static int NoOfClicks=-1;
-        public static int MaxNoOfClicks = 20;
+        public static int MaxNoOfClicks = 30;
         public static bool GameOwer=false;
-
-        
 
     }
 }

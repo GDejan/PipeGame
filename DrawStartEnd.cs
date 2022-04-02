@@ -15,13 +15,18 @@ namespace PipeGame
         {
 
         }
-        public DrawStartEnd(Grid GameGrid, int row, int column, bool startEnd) //draw start and end point of the game depends of 
+        /// <summary>
+        /// draw start and end point of the game depends of bool
+        /// </summary>
+        /// <param name="GameGrid">game grid</param>
+        /// <param name="row">row</param>
+        /// <param name="column">column</param>
+        /// <param name="startEnd">1=start, 0=end</param>
+        public DrawStartEnd(Grid GameGrid, int row, int column, bool startEnd, DrawBox[][] BoxArray) 
         {
             Grid TileGrid = DrawGrid(row, column);
             Rectangle Block = DrawBlock();
             TileGrid.Children.Add(Block);
-
-            directions[1] = true;
 
             Rectangle Line = new Rectangle();
             
@@ -32,18 +37,23 @@ namespace PipeGame
             if (startEnd)
             {
                 Line.Margin=new System.Windows.Thickness(0, 0, 0, Settings.Marg);
-                directions[1] = true;
+                BoxArray[1][2].directions[2] = true;
+                BoxArray[1][2].OkState = true;
+                BoxArray[1][2].DownConn = true;
             }
             else
             {
                 Line.Margin = new System.Windows.Thickness(0, Settings.Marg, 0, 0);
-                directions[0] = true;
+                BoxArray[6][5].directions[0] = true;
+                BoxArray[6][5].OkState = true;
+                BoxArray[6][5].UpConn = true;
             }
 
-
             TileGrid.Children.Add(Line);
-
             GameGrid.Children.Add(TileGrid);
+
+            
+            
         }
 
         

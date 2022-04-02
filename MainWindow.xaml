@@ -9,8 +9,8 @@
 
     <Grid x:Name="GameGrid" Focusable="True" MouseLeftButtonDown="MouseLeftDownEvent" MouseRightButtonDown="MouseRightButtonDown" >
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="10"></ColumnDefinition>
-            <ColumnDefinition Width="50"></ColumnDefinition>
+            <ColumnDefinition Width="10"> </ColumnDefinition>
+            <ColumnDefinition Width="{Binding Settings.BoxHeight}"></ColumnDefinition>
             <ColumnDefinition Width="50"></ColumnDefinition>
             <ColumnDefinition Width="50"></ColumnDefinition>
             <ColumnDefinition Width="50"></ColumnDefinition>
